@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import Array from "./Array";
+import React from 'react';
+import styled from 'styled-components';
+import Array from './Array';
 import { atom, useRecoilState } from 'recoil';
 
 const Wrapper = styled.section`
@@ -8,8 +8,8 @@ const Wrapper = styled.section`
     max-width: 1680px;
 
     .button {
-    margin: 50px 70px;
-    display: none;
+        margin: 50px 70px;
+        display: none;
     }
 `;
 
@@ -19,13 +19,13 @@ const List = styled.div`
     row-gap: 10px;
 
     .productContent {
-    display: flex;
-    justify-content: center;
+        display: flex;
+        justify-content: center;
     }
     .product {
-    width: 400px;
-    height: 400px;
-    margin: 10px;
+        width: 400px;
+        height: 400px;
+        margin: 10px;
     }
 `;
 
@@ -48,19 +48,18 @@ const Button = styled.div`
     font-size: 18px;
 
     .input-file-button {
-    padding: 6px 25px;
-    background-color: #0358ff;
-    border-radius: 4px;
-    color: white;
+        padding: 6px 25px;
+        background-color: #0358ff;
+        border-radius: 4px;
+        color: white;
 
-    &:hover {
-        cursor: pointer;
-    }
+        &:hover {
+            cursor: pointer;
+        }
     }
 `;
 
 const Grid = (id, src) => {
-
     const state = atom({
         key: 'grid',
         default: [],
@@ -68,47 +67,60 @@ const Grid = (id, src) => {
     const [imageList, setImageList] = useRecoilState(state);
 
     const onFileChange = (e) => {
-        const { target: { files } } = e;
-        console.log(files)
+        const {
+            target: { files },
+        } = e;
+        console.log(files);
         const theFile = files[0];
         const reader = new FileReader();
         reader.readAsDataURL(theFile);
         reader.onloadend = (finishedEvent) => {
-            const { currentTarget: { result }} = finishedEvent;
-            setImageList((imageList) => [...imageList, { src: result, id: imageList.length, theFile }]);
-            };
+            const {
+                currentTarget: { result },
+            } = finishedEvent;
+            setImageList((imageList) => [
+                ...imageList,
+                { src: result, id: imageList.length, theFile },
+            ]);
+        };
     };
 
     const removeItems = (id) => {
-        console.log(id);
+        // console.log(id);
         setImageList(imageList.filter((imageList) => imageList.id !== id));
     };
 
     return (
-    <Wrapper>
-        <OutsideBox>
-        <InsideBox id={id} src={src}>
-            {imageList.map((image) => {
-            return <Array id={image.id} removeItems={removeItems} image={image} />;
-            })}
-        </InsideBox>
-        </OutsideBox>
-        <Button>
-        <label className="input-file-button" for="input-file">
-            업로드
-        </label>
-        <input className="button" id="input-file" type="file" onChange={onFileChange} multiple="multiple" />
-        </Button>
-        <List>
-        {imageList.map((image) => {
-            return (
-            <div className="productContent">
-                <img className="product" src={image.src} />
-            </div>
-            );
-        })}
-        </List>
-    </Wrapper>
+        <Wrapper>
+            <OutsideBox>
+                <InsideBox id={id} src={src}>
+                    {imageList.map((image) => {
+                        return <Array id={image.id} removeItems={removeItems} image={image} />;
+                    })}
+                </InsideBox>
+            </OutsideBox>
+            <Button>
+                <label className='input-file-button' for='input-file'>
+                    업로드
+                </label>
+                <input
+                    className='button'
+                    id='input-file'
+                    type='file'
+                    onChange={onFileChange}
+                    multiple='multiple'
+                />
+            </Button>
+            <List>
+                {imageList.map((image) => {
+                    return (
+                        <div className='productContent'>
+                            <img className='product' src={image.src} />
+                        </div>
+                    );
+                })}
+            </List>
+        </Wrapper>
     );
 };
 
