@@ -1,15 +1,5 @@
-import React from "react";
-import styled from "styled-components";
-
-const Array = ({ image, removeItems, id }) => {
-    return (
-    <>
-        <Image onClick={() => removeItems(id)}>{`${image.id} - ${image.theFile.name}`}</Image>
-    </>
-    );
-};
-
-export default Array;
+import React from 'react';
+import styled from 'styled-components';
 
 const Image = styled.div`
     font-size: 15px;
@@ -20,6 +10,16 @@ const Image = styled.div`
     padding: 0 10px;
 
     &:hover {
-    cursor: pointer;
+        cursor: pointer;
     }
 `;
+
+const Array = ({ image, removeItems, id }) => {
+    return (
+        <>
+            <Image onClick={() => removeItems(id)}>{`${image.id} - ${image.theFile.name}`}</Image>
+        </>
+    );
+};
+
+export default Array;
