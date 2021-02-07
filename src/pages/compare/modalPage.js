@@ -46,6 +46,7 @@ const ModalPage = ({ isModalProduct }) => {
                   <div className="info">{content.brokerageStoreAddress}</div>
                   <div className="info">{content.brokerageStoreAddress}</div>
                   <div className="info">{content.brokerageStoreAddress}</div>
+                  <div className="info">{content.brokerageStoreAddress}</div>
                 </div>
               </Place>
             );
@@ -68,10 +69,16 @@ const Categories = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   width: 60px;
-  height: 272px;
-  margin: 8px 8px 8px 0;
+  /* height: 272px; */
+  /* margin: 8px 8px 8px 0; */
   text-align: left;
-  /* padding: 8px 0; */
+  padding-top: 186px;
+  color: #929292;
+
+  .category {
+    padding: 9px 0;
+    border-bottom: 1px solid #eeeeee;
+  }
 `;
 
 const PlaceData = styled.div`
@@ -112,13 +119,17 @@ const Place = styled.div`
     height: 18px;
   }
 
+  .address {
+    margin-top: 2px;
+  }
+
   .container {
     text-align: right;
     margin-top: 20px;
     font-weight: 500;
 
     .info {
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid #eeeeee;
       padding: 6.5px 30px;
     }
   }
