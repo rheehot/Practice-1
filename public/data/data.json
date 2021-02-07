@@ -1,132 +1,137 @@
 {
-    "category": {
-        "data": [
-            {
-                "id": 0,
-                "text": "예상 창업비용"
-            },
-            {
-                "id": 1,
-                "text": "예상 월 수익"
-            },
-            {
-                "id": 2,
-                "text": "보증금"
-            },
-            {
-                "id": 3,
-                "text": "권리금"
-            },
-            {
-                "id": 4,
-                "text": "면적"
-            },
-            {
-                "id": 5,
-                "text": "층"
-            }
-        ]
+  "category": {
+    "data": [
+      {
+        "id": 0,
+        "text": "예상 창업비용"
+      },
+      {
+        "id": 1,
+        "text": "예상 월 수익"
+      },
+      {
+        "id": 2,
+        "text": "보증금"
+      },
+      {
+        "id": 3,
+        "text": "권리금"
+      },
+      {
+        "id": 4,
+        "text": "면적"
+      },
+      {
+        "id": 5,
+        "text": "층"
+      }
+    ]
+  },
+  "data": {
+    "content": [
+      {
+        "id": 4093,
+        "typeBusiness": "카페",
+        "src": "https://i.esdrop.com/d/wvQH6SsNdX.jpg",
+        "logo": "https://i.esdrop.com/d/YWDCWwNbQq.jpg",
+        "number": "210129-ZDR3U3P0",
+        "estimateType": "BRAND_AND_STORE",
+        "matchingRequestId": 733,
+        "readYn": "N",
+        "estimatedInitialInvestmentCost": 69900000,
+        "franchiseBrandName": "봉구통닭",
+        "brokerageStoreAddress": "서울 서초구 서초동",
+        "floor": 2,
+        "exclusiveAreaPy": 29.0
+      },
+      {
+        "id": 4089,
+        "src": "https://i.esdrop.com/d/wvQH6SsNdX.jpg",
+        "logo": "https://i.esdrop.com/d/YWDCWwNbQq.jpg",
+        "typeBusiness": "카페",
+        "number": "210129-BI2TBH19",
+        "estimateType": "BRAND_AND_STORE",
+        "matchingRequestId": 733,
+        "readYn": "N",
+        "estimatedInitialInvestmentCost": 79500000,
+        "franchiseBrandName": "제주둘레국수",
+        "brokerageStoreAddress": "서울 서초구 서초동",
+        "floor": 2,
+        "exclusiveAreaPy": 29.0
+      },
+      {
+        "id": 4091,
+        "src": "https://i.esdrop.com/d/wvQH6SsNdX.jpg",
+        "logo": "https://i.esdrop.com/d/YWDCWwNbQq.jpg",
+        "typeBusiness": "카페",
+        "number": "210129-TXTS19W9",
+        "estimateType": "BRAND_AND_STORE",
+        "matchingRequestId": 733,
+        "readYn": "N",
+        "estimatedInitialInvestmentCost": 79500000,
+        "franchiseBrandName": "치킨투어237",
+        "brokerageStoreAddress": "서울 서초구 서초동",
+        "floor": 2,
+        "exclusiveAreaPy": 29.0
+      },
+      {
+        "id": 4085,
+        "src": "https://i.esdrop.com/d/wvQH6SsNdX.jpg",
+        "logo": "https://i.esdrop.com/d/YWDCWwNbQq.jpg",
+        "typeBusiness": "카페",
+        "number": "210129-QLL20B72",
+        "estimateType": "BRAND_AND_STORE",
+        "matchingRequestId": 733,
+        "readYn": "N",
+        "estimatedInitialInvestmentCost": 81000000,
+        "franchiseBrandName": "백곱식당",
+        "brokerageStoreAddress": "서울 서초구 서초동",
+        "floor": 2,
+        "exclusiveAreaPy": 29.0
+      },
+      {
+        "id": 4084,
+        "src": "https://i.esdrop.com/d/wvQH6SsNdX.jpg",
+        "logo": "https://i.esdrop.com/d/YWDCWwNbQq.jpg",
+        "typeBusiness": "카페",
+        "number": "210129-878B1LX4",
+        "estimateType": "BRAND_AND_STORE",
+        "matchingRequestId": 733,
+        "readYn": "Y",
+        "estimatedInitialInvestmentCost": 90000000,
+        "franchiseBrandName": "백곱식당",
+        "brokerageStoreAddress": "서울 서초구 잠원동",
+        "floor": 1,
+        "exclusiveAreaPy": 23.0
+      }
+    ],
+    "pageable": {
+      "sort": {
+        "sorted": false,
+        "unsorted": true,
+        "empty": true
+      },
+      "offset": 0,
+      "pageNumber": 0,
+      "pageSize": 5,
+      "paged": true,
+      "unpaged": false
     },
-    "data": {
-        "content": [
-            {
-                "id": 4093,
-                "typeBusiness": "카페",
-                "src": "https://i.esdrop.com/d/wvQH6SsNdX.jpg",
-                "logo": "https://i.esdrop.com/d/YWDCWwNbQq.jpg",
-                "number": "210129-ZDR3U3P0",
-                "estimateType": "BRAND_AND_STORE",
-                "matchingRequestId": 733,
-                "readYn": "N",
-                "estimatedInitialInvestmentCost": 69900000,
-                "franchiseBrandName": "봉구통닭",
-                "brokerageStoreAddress": "서울 서초구 서초동",
-                "floor": 2,
-                "exclusiveAreaPy": 29.0
-            },
-            {
-                "id": 4089,
-                "src": "https://i.esdrop.com/d/wvQH6SsNdX.jpg",
-                "logo": "https://i.esdrop.com/d/YWDCWwNbQq.jpg",
-                "typeBusiness": "카페",
-                "number": "210129-BI2TBH19",
-                "estimateType": "BRAND_AND_STORE",
-                "matchingRequestId": 733,
-                "readYn": "N",
-                "estimatedInitialInvestmentCost": 79500000,
-                "franchiseBrandName": "제주둘레국수",
-                "brokerageStoreAddress": "서울 서초구 서초동",
-                "floor": 2,
-                "exclusiveAreaPy": 29.0
-            },
-            {
-                "id": 4091,
-                "src": "https://i.esdrop.com/d/wvQH6SsNdX.jpg",
-                "logo": "https://i.esdrop.com/d/YWDCWwNbQq.jpg",
-                "typeBusiness": "카페",
-                "number": "210129-TXTS19W9",
-                "estimateType": "BRAND_AND_STORE",
-                "matchingRequestId": 733,
-                "readYn": "N",
-                "estimatedInitialInvestmentCost": 79500000,
-                "franchiseBrandName": "치킨투어237",
-                "brokerageStoreAddress": "서울 서초구 서초동",
-                "floor": 2,
-                "exclusiveAreaPy": 29.0
-            },
-            {
-                "id": 4085,
-                "src": "https://i.esdrop.com/d/wvQH6SsNdX.jpg",
-                "logo": "https://i.esdrop.com/d/YWDCWwNbQq.jpg",
-                "typeBusiness": "카페",
-                "number": "210129-QLL20B72",
-                "estimateType": "BRAND_AND_STORE",
-                "matchingRequestId": 733,
-                "readYn": "N",
-                "estimatedInitialInvestmentCost": 81000000,
-                "franchiseBrandName": "백곱식당",
-                "brokerageStoreAddress": "서울 서초구 서초동",
-                "floor": 2,
-                "exclusiveAreaPy": 29.0
-            },
-            {
-                "id": 4084,
-                "src": "https://i.esdrop.com/d/wvQH6SsNdX.jpg",
-                "logo": "https://i.esdrop.com/d/YWDCWwNbQq.jpg",
-                "typeBusiness": "카페",
-                "number": "210129-878B1LX4",
-                "estimateType": "BRAND_AND_STORE",
-                "matchingRequestId": 733,
-                "readYn": "Y",
-                "estimatedInitialInvestmentCost": 90000000,
-                "franchiseBrandName": "백곱식당",
-                "brokerageStoreAddress": "서울 서초구 잠원동",
-                "floor": 1,
-                "exclusiveAreaPy": 23.0
-            }
-        ],
-        "pageable": {
-            "sort": {
-                "sorted": false,
-                "unsorted": true,
-                "empty": true
-            },
-            "offset": 0,
-            "pageNumber": 0,
-            "pageSize": 5,
-            "paged": true,
-            "unpaged": false
-        },
-        "totalPages": 3,
-        "totalElements": 11,
-        "last": false,
-        "sort": { "sorted": false, "unsorted": true, "empty": true },
-        "size": 5,
-        "number": 0,
-        "numberOfElements": 5,
-        "first": true,
-        "empty": false
-    },
-    "exception": { "code": "0000", "httpStatus": "OK", "description": "성공", "message": null },
-    "requestId": null
+    "totalPages": 3,
+    "totalElements": 11,
+    "last": false,
+    "sort": { "sorted": false, "unsorted": true, "empty": true },
+    "size": 5,
+    "number": 0,
+    "numberOfElements": 5,
+    "first": true,
+    "empty": false
+  },
+  "exception": {
+    "code": "0000",
+    "httpStatus": "OK",
+    "description": "성공",
+    "message": null
+  },
+  "requestId": null
 }

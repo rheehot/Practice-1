@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import styled, { css } from "styled-components";
 import ModalPage from "./ModalPage";
 
-const ModalButton = (props, data, content) => {
+const ModalButton = ({ data, content }) => {
   const [toggle, setToggle] = useState(false);
   const [isModalProduct, setIsModalProduct] = useState(false);
 
@@ -10,13 +10,17 @@ const ModalButton = (props, data, content) => {
     setIsModalProduct(!isModalProduct);
   };
 
+  console.log(data);
+
   return (
     <Fragment>
       <Container>
         <Toggle toggle={toggle}>
           <Compare onClick={() => handleModalProduct()}>
             <span>견적 비교하기</span>
-            <span>({data.length}/5)</span>
+            <PlaceNumber data={data}>
+              ({!data ? 0 : data?.length}/5)
+            </PlaceNumber>
             <Arrow />
           </Compare>
           <Line />
@@ -67,6 +71,10 @@ const Compare = styled.button`
   &:hover {
     cursor: pointer;
   }
+`;
+
+const PlaceNumber = styled.span`
+  color: ${(props) => (!props.data ? "white" : "orange")};
 `;
 
 const Line = styled.div`
