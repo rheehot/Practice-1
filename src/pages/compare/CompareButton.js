@@ -35,7 +35,6 @@ const CompareButton = () => {
   return (
     <Fragment>
       <Button
-        data={data}
         onClick={handleToggle}
         isModal={isModal}
         handleshowModal={handleShowModal}

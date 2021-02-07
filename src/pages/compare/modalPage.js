@@ -26,13 +26,14 @@ const ModalPage = ({ isModalProduct }) => {
           <div className="category">보증금</div>
           <div className="category">권리금</div>
           <div className="category">면적</div>
-          <div className="category">층</div>
+          <div className="category" id="last">
+            층
+          </div>
         </Categories>
         <PlaceData>
-          {content?.map((content) => {
-            console.log(content);
+          {content?.map((content, id) => {
             return (
-              <Place>
+              <Place key={id}>
                 <div className="placeimage">
                   <img src={content.src}></img>
                   <img className="placeLogo" src={content.logo}></img>
@@ -61,6 +62,7 @@ const WrapModal = styled.div`
   display: ${(props) => (props.isModalProduct ? "flex" : "none")};
   justify-content: flex-start;
   margin: 0 208px;
+  /* justify-content: center; */
 `;
 
 const Categories = styled.div`
@@ -78,6 +80,10 @@ const Categories = styled.div`
   .category {
     padding: 9px 0;
     border-bottom: 1px solid #eeeeee;
+  }
+
+  #last {
+    margin-bottom: 40px;
   }
 `;
 
