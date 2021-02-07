@@ -1,55 +1,100 @@
-import React from 'react';
-import styled from 'styled-components';
-import modalPage from './modalPage';
+import React, { Fragment, useState } from 'react';
+import styled, { css } from 'styled-components';
+import ModalPage from './ModalPage';
 
-const modalButton = () => {
+const ModalButton = (props, data, content) => {
+    const [toggle, setToggle] = useState(false);
+    const [isModalProduct, setIsModalProduct] = useState(false);
+
+    const handleModalProduct = () => {
+        setIsModalProduct(!isModalProduct);
+    };
+
     return (
-        <Modal>
+        <Fragment>
             <Container>
-                <Button>
-                    <span>견적 비교하기</span>
-                    <span>(2/5)</span>
-                    <Img src='https://i.esdrop.com/d/HWwHinrXHN.png' alt='arrow' />
-                </Button>
+                <Toggle toggle={toggle}>
+                    <Wrapper>
+                        <Compare onClick={() => handleModalProduct()}>
+                            <span>견적 비교하기</span>
+                            <span>({data.length}/5)</span>
+                            <Arrow />
+                        </Compare>
+                        <Line />
+                        <ModalPage isModalProduct={isModalProduct} />
+                    </Wrapper>
+                </Toggle>
             </Container>
-            <Line />
-            <modalPage />
-        </Modal>
+        </Fragment>
     );
 };
 
-export default modalButton;
+const Wrapper = styled.div``;
 
-const Modal = styled.div``;
+const Up = css`
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff;
+    display: inline-block;
+    transform: rotate(315deg);
+    position: absolute;
+    top: 12px;
+    right: 35px;
+`;
+
+const Down = css`
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff;
+    display: inline-block;
+    transform: rotate(135deg);
+    position: absolute;
+    top: 12px;
+    right: 35px;
+`;
+
+const Arrow = styled.div`
+    ::after {
+        ${(props) => (props.isModalProduct ? `${Up}` : `${Down}`)}
+    }
+`;
+
+export default ModalButton;
 
 const Container = styled.div`
     display: flex;
+    flex-direction: column;
+    bottom: 0;
 `;
+const Toggle = styled.div``;
 
-const Button = styled.button`
-    display: flex;
+const Compare = styled.button`
+    position: relative;
+    justify-content: center;
     box-sizing: border-box;
     width: 200px;
     height: 44px;
     outline-style: none;
-    margin: 0 0 -1px 60px;
+    margin: 0 0 -1px 208px;
     border-radius: 8px;
     background-color: #212121;
     color: #ffffff;
-    font-size: 10px;
     font-weight: 500;
-    /* padding: 10px 24px 3px 10px; */
+    padding: 10px 48px 10px 24px;
 
     span {
-        &:nth-child(2) {
-            font-family: NotoSansKR;
-            color: #ff5b29;
-            text-align: center;
-            margin: 0 0 7px;
-            /* width: 128px; */
-            height: 24px;
-            line-height: normal;
-        }
+        color: ${(props) => (props.isModalProduct ? '#ffffff' : 'ff5b29')};
+        font-size: 14px;
+        text-align: center;
+        font-family: NotoSansKR;
+        margin: 0 0 7px;
+        width: 128px;
+        height: 24px;
+        line-height: normal;
     }
 
     &:hover {
@@ -57,15 +102,8 @@ const Button = styled.button`
     }
 `;
 
-const Img = styled.img`
-    width: 24px;
-    height: 24px;
-    margin: 0 0 7px;
-    /* padding: 8px 6px 9px; */
-`;
-
 const Line = styled.div`
     height: 2px;
-    width: 100%;
+    width: 1440px;
     background-color: #212121;
 `;
