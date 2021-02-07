@@ -14,31 +14,25 @@ const ModalButton = ({ data, content }) => {
 
   return (
     <Fragment>
-      <Container>
-        <Toggle toggle={toggle}>
-          <Compare onClick={() => handleModalProduct()}>
-            <span>견적 비교하기</span>
-            <PlaceNumber data={data}>
-              ({!data ? 0 : data?.length}/5)
-            </PlaceNumber>
-            <Arrow />
-          </Compare>
-          <Line />
-          <ModalPage isModalProduct={isModalProduct} />
-        </Toggle>
-      </Container>
+      <Toggle toggle={toggle}>
+        <Compare onClick={() => handleModalProduct()}>
+          <span>견적 비교하기</span>
+          <PlaceNumber data={data}>({!data ? 0 : data?.length}/5)</PlaceNumber>
+          <Arrow />
+        </Compare>
+        <Line />
+        <ModalPage isModalProduct={isModalProduct} />
+      </Toggle>
     </Fragment>
   );
 };
 
 export default ModalButton;
 
-const Container = styled.div`
+const Toggle = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
-  bottom: 0;
-`;
-const Toggle = styled.div`
   position: absolute;
   bottom: 0;
 `;
@@ -74,7 +68,7 @@ const Compare = styled.button`
 `;
 
 const PlaceNumber = styled.span`
-  color: ${(props) => (!props.data ? "white" : "orange")};
+  color: ${(props) => (!props.data ? "white" : "#ff5b29")};
 `;
 
 const Line = styled.div`
