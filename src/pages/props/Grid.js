@@ -70,7 +70,7 @@ const Grid = (id, src) => {
         const {
             target: { files },
         } = e;
-        console.log(files);
+        // console.log(files);
         const theFile = files[0];
         const reader = new FileReader();
         reader.readAsDataURL(theFile);

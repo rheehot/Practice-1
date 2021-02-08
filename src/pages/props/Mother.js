@@ -28,7 +28,7 @@ const Mother = () => {
     };
 
     const removeText = (id) => {
-        console.log(id);
+        // console.log(id);
         setArray(array.filter((array) => array.id !== id));
     };
 

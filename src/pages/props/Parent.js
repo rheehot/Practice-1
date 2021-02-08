@@ -37,7 +37,7 @@ const Parent = (id, text) => {
     return (
         <>
             {data.map((item, idx) => {
-                console.log(item);
+                // console.log(item);
                 return <Children key={idx} id={item.id} text={item.text} item={item} removeItems={removeItems} />;
             })}
             <Input>
