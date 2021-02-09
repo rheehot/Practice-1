@@ -20,6 +20,17 @@ const CompareButton = () => {
             .then((res) => setData(res.data.content));
     }, []);
 
+    // data.forEach((el) => console.log(el));
+    // const newArr = data.map((x) => x.estimatedInitialInvestmentCost);
+    // const min = Math.min.apply(null, newArr);
+    // console.log(min);
+
+    const minNumber = () => {
+        const cost = data.map((x) => x.estimatedInitialInvestmentCost);
+        const min = Math.min.apply(null, cost);
+        console.log(min);
+    };
+
     const handleShowModal = () => {
         setIsModalOpen(!isModalOpen);
     };
@@ -29,7 +40,7 @@ const CompareButton = () => {
     };
 
     const handleCheck = (e) => {
-        const item = data[3];
+        const item = data[2];
         const { checked } = e.target;
         if (checked) {
             // add item
@@ -54,10 +65,12 @@ const CompareButton = () => {
                 <Wrapper>비교</Wrapper>
             </Container>
             <ModalButton
+                handleCheck={handleCheck}
                 handleAddItem={addItem}
                 isModalProduct={isModalProduct}
                 removeItem={removeItem}
                 data={data}
+                minNumber={minNumber}
                 isModalOpen={isModalOpen}
                 handleshowModal={handleShowModal}
                 handleModalProduct={handleModalProduct}

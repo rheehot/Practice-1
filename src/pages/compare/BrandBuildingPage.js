@@ -5,7 +5,6 @@ import { API } from '../config';
 import { compareState } from './CompareButton';
 
 const ModalPage = ({ id, isModalProduct, removeItem }) => {
-    // const [data, setData] = useState([]);
     const [content, setContent] = useRecoilState(compareState);
 
     const countNumber = (number) => {
@@ -45,10 +44,10 @@ const ModalPage = ({ id, isModalProduct, removeItem }) => {
                         층
                     </div>
                 </Categories>
-                <PlaceData>
+                <PlaceData onClick={() => removeItem(id)}>
                     {content?.map((content, idx) => {
                         return (
-                            <Place key={idx} onClick={() => removeItem(id)}>
+                            <Place key={idx}>
                                 <div className='placeimage'>
                                     <img src={content.src} alt='store'></img>
                                     <img className='placeLogo' src={content.logo} alt='logo'></img>
@@ -96,8 +95,8 @@ const ModalPage = ({ id, isModalProduct, removeItem }) => {
 
 const WrapModal = styled.div`
     display: ${(props) => (props.isModalProduct ? 'flex' : 'none')};
-    justify-content: center;
-    margin: 0 208px;
+    justify-content: flex-start;
+    margin: 0 210px;
     max-height: 457px;
     overflow: hidden;
 `;
@@ -156,14 +155,17 @@ const Place = styled.div`
 
     .delete {
         position: absolute;
-        top: 5px;
-        right: 5px;
-        font-size: 15px;
-        color: white;
-        background-color: rgba(0, 0, 0, 0.5);
-        border-radius: 100%;
-        width: 20px;
+        top: 10px;
+        right: 10px;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        font-size: 1em;
+        font-weight: bold;
+        text-align: center;
+        width: 22px;
         height: 20px;
+        border-radius: 100%;
+        padding-top: 3px;
 
         &:hover {
             cursor: pointer;
