@@ -1,9 +1,11 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import styled from 'styled-components';
 import { API } from '../config';
+import { compareState } from './CompareButton';
+import { useRecoilState } from 'recoil';
 
 const ModalPage = ({ id, isModalProduct, removeItem }) => {
-    const [content, setContent] = useState([]);
+    const [content, setContent] = useRecoilState(compareState);
 
     useEffect(() => {
         fetch(API)
@@ -12,6 +14,10 @@ const ModalPage = ({ id, isModalProduct, removeItem }) => {
                 setContent(res.data.content);
             });
     }, []);
+    // console.log(content);
+
+    // const newArray = [content];
+    // console.log(newArray);
 
     const countNumber = (number) => {
         var inputNumber = number < 0 ? false : number;
@@ -42,14 +48,20 @@ const ModalPage = ({ id, isModalProduct, removeItem }) => {
             <WrapModal isModalProduct={isModalProduct}>
                 <Categories>
                     <div className='category'>예상 창업비용</div>
-                    <div className='category'>예상 월 수익</div>
+                    <div className='category' id='last'>
+                        예상 월 수익
+                    </div>
                 </Categories>
                 <PlaceData>
                     {content?.map((content, idx) => {
                         return (
                             <Place key={idx} onClick={() => removeItem(id)}>
-                                <img className='placeLogo' src={content.logo} alt='logo'></img>
-                                <div className='delete'>X</div>
+                                <div className='logoContainer'>
+                                    <img className='placeLogo' src={content.logo} alt='logo'></img>
+                                    <div className='delete'>
+                                        <span id='cross'>X</span>
+                                    </div>
+                                </div>
                                 <div className='placetype'>{content.typeBusiness}</div>
                                 <div className='brand'>{content.franchiseBrandName}</div>
                                 <div className='container'>
@@ -69,31 +81,37 @@ const ModalPage = ({ id, isModalProduct, removeItem }) => {
                     })}
                 </PlaceData>
             </WrapModal>
-            <EmptyContainer></EmptyContainer>
         </Fragment>
     );
 };
 
-const EmptyContainer = styled.div``;
 const WrapModal = styled.div`
     display: ${(props) => (props.isModalProduct ? 'flex' : 'none')};
     justify-content: flex-start;
-    margin: 0 208px;
+    margin: 0 210px;
+    max-height: 228px;
+    overflow: hidden;
 `;
 
 const Categories = styled.div`
-    font-size: 10px;
+    /* display: ${(props) => (props.isModalProduct ? 'flex' : 'none')}; */
+    /* display: ${(props) => (props.content === undefined ? 'none' : 'flex')}; */
     display: flex;
+    font-size: 10px;
     flex-direction: column;
     justify-content: flex-end;
     width: 60px;
     text-align: left;
-    padding-top: 186px;
+    padding-top: 133px;
     color: #929292;
 
     .category {
         padding: 9px 0;
         border-bottom: 1px solid #eeeeee;
+    }
+
+    #last {
+        margin-bottom: 40px;
     }
 `;
 
@@ -102,46 +120,59 @@ const PlaceData = styled.div`
 `;
 
 const Place = styled.div`
+    position: relative;
     justify-content: center;
     text-align: center;
     font-size: 14px;
     height: 20px;
+    width: 192px;
     font-weight: 700;
 
-    .placeLogo {
-        border-radius: 14px;
-        position: absolute;
-        top: 55px;
-        left: 75px;
-        width: 40px;
-        height: 40px;
-    }
+    .logoContainer {
+        position: relative;
 
-    .delete {
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        font-size: 15px;
-        color: white;
-        background-color: rgba(0, 0, 0, 0.5);
-        border-radius: 100%;
-        width: 20px;
-        height: 20px;
+        .placeLogo {
+            border-radius: 14px;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            margin: 20px 0 0;
+        }
 
-        &:hover {
-            cursor: pointer;
+        .delete {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            font-size: 1em;
+            font-weight: bold;
+            text-align: center;
+            width: 22px;
+            height: 20px;
+            border-radius: 100%;
+            padding-top: 3px;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
 
     .placetype {
         font-size: 12px;
         font-weight: 500;
+        margin-top: 10px;
         height: 18px;
+        text-align: center;
     }
 
+    .brand {
+        height: 20px;
+    }
     .container {
         text-align: right;
-        margin-top: 20px;
+        margin-top: 14px;
         font-weight: 500;
 
         .info {

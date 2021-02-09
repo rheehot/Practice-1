@@ -2,6 +2,8 @@ import React, { Fragment, useState } from 'react';
 import styled, { css } from 'styled-components';
 import BrandBuildingPage from './BrandBuildingPage';
 import BrandPage from './BrandPage';
+import BuildingPage from './BuildingPage';
+import ModalPage from './components/ModalPage';
 
 const ModalButton = ({ id, data, removeItem, isModalOpen }) => {
     const [isModalProduct, setIsModalProduct] = useState(false);
@@ -19,8 +21,10 @@ const ModalButton = ({ id, data, removeItem, isModalOpen }) => {
                     <Arrow />
                 </Compare>
                 <Line />
+                <ModalPage id={id} removeItem={removeItem} isModalProduct={isModalProduct} />
                 {/* <BrandPage id={id} removeItem={removeItem} isModalProduct={isModalProduct} /> */}
-                <BrandBuildingPage id={id} removeItem={removeItem} isModalProduct={isModalProduct} />
+                {/* <BuildingPage id={id} removeItem={removeItem} isModalProduct={isModalProduct} /> */}
+                {/* <BrandBuildingPage id={id} removeItem={removeItem} isModalProduct={isModalProduct} /> */}
             </Toggle>
         </Fragment>
     );
